@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import connectDB from "./db/dbConnect.js";
 
-dotenv.config(); // dotconfig is fine this way if your .env is in root folder of same project
+dotenv.config(); // dotenvconfig is fine this way if your .env is in root folder of same project
 
 // dotenv.config({     But in case it is in another folder apart from root than give path too
 //   path: 'filepath'
