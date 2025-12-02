@@ -1,13 +1,28 @@
 import dotenv from "dotenv";
+import express from "express";
 import connectDB from "./db/dbConnect.js";
 
+const app = express();
 dotenv.config(); // dotenvconfig is fine this way if your .env is in root folder of same project
 
 // dotenv.config({     But in case it is in another folder apart from root than give path too
 //   path: 'filepath'
 // })
 
-connectDB();
+connectDB()
+  .then(() => {
+    app.on("error", (err) => {
+      console.log(`err: ${err}`);
+      throw err;
+    });
+    app.listen(process.env.Port || 4771);
+    console.log(
+      `App is running succesfully on port ${process.env.Port || 4771}`
+    );
+  })
+  .catch((error) => {
+    console.log(`Connection failed due to ${error}`);
+  });
 
 // const app = express();
 // (async () => {
