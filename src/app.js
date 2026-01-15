@@ -9,4 +9,8 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" })); //extended means you can give object inside objects
 app.use(express.static("Public "));
 
-export default express;
+app.get("/", (req, res) => {
+  res.send("Good News! Backend is Running");
+});
+
+export default app;

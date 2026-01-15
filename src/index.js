@@ -1,8 +1,7 @@
 import dotenv from "dotenv";
-import express from "express";
+import app from "./app.js";
 import connectDB from "./db/dbConnect.js";
 
-const app = express();
 dotenv.config(); // dotenvconfig is fine this way if your .env is in root folder of same project
 
 // dotenv.config({     But in case it is in another folder apart from root than give path too
